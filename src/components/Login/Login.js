@@ -4,10 +4,13 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
+import { AiFillGoogleCircle, AiFillFacebook } from 'react-icons/ai';
 
 import './Login.css'
+import { useForm } from 'react-hook-form';
 
 function Login() {
+    const { errors } = useForm ();
     const [newUser, setNewUser] = useState(true);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
@@ -178,7 +181,7 @@ function Login() {
 
             
         <div className="login-query">
-            <button htmlFor="newUser" type="submit">Welcome Aborad!!!<br/>  
+            <button htmlFor="newUser" type="submit">Welcome Aboard!!!<br/>  
             <span onClick={() => setNewUser(!newUser)} name="newUser" style={{textDecoration:'underline'}}>
                  {newUser? 'Sign In' : 'Sign Up!'}</span> 
             {/* <input type="checkbox"  onClick={() => setNewUser(!newUser)} name="newUser" id="" /> */}
@@ -192,17 +195,20 @@ function Login() {
                 <h4 style={{color:'darkgreen'}}>{newUser? '': 'Please sign in to your account'}</h4>
                 {
                     newUser && <input type="text" onBlur={handleBlur} name="name" placeholder="Your Name.." required />
+                    
                 }
 
                 <br />
                 <input type="text" onBlur={handleBlur} name="email" placeholder="Your email" required />
+                {errors.email && "Email required"}
                 <br />
                 <input type="password" onBlur={handleBlur} name="password" id="" placeholder="password" required />
+                {errors.password && "provide passwword"}
                 <br />
                 <input type="submit" value={newUser ? 'Register' : 'Log In'} />
-
-                <button type="submit" onClick={handleGoogleSignIn}>Continue with google</button>
-                <button type="submit" onClick={handleFbSignIn}>Continue with facebook</button>
+                
+                <button type="submit" onClick={handleGoogleSignIn}> <AiFillGoogleCircle /> Continue with google</button>
+                <button type="submit" onClick={handleFbSignIn}> <AiFillFacebook/>Continue with facebook</button>
 
             </form>
 
@@ -217,8 +223,8 @@ function Login() {
                 <br />
                 <input type="submit" value={newUser ? 'Register' : 'Log In'} />
 
-                <button type="submit" onClick={handleGoogleSignIn}>Continue with google</button>
-                <button type="submit" onClick={handleFbSignIn}>Continue with facebook</button>
+                <button type="submit" onClick={handleGoogleSignIn}> <AiFillGoogleCircle  /> Continue with google</button>
+                <button type="submit" onClick={handleFbSignIn}> <AiFillFacebook  /> Continue with facebook</button>
 
             </form>
             

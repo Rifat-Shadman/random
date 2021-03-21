@@ -20,9 +20,7 @@ const Home = () => {
             id: '1',
             bed: 1,
             capacity: 1,
-            bedType: 'Single',
-            avatar: 'S',
-            price: 119
+            vehicleType: 'Single'
         },
         {
             title: 'Taxi',
@@ -31,9 +29,7 @@ const Home = () => {
             id: '2',
             bed: 1,
             capacity: 2,
-            bedType: 'Double',
-            avatar: 'D',
-            price: 149
+            vehicleType: 'Double'
         },
         {
             title: 'Bus',
@@ -42,9 +38,7 @@ const Home = () => {
             id: '3',
             bed: 2,
             capacity: 4,
-            bedType: 'Family',
-            avatar: 'F',
-            price: 199
+            vehicleType: 'Family'
         },
         {
             title: 'Train',
@@ -53,9 +47,8 @@ const Home = () => {
             id: '4',
             bed: 1,
             capacity: 2,
-            bedType: 'Train',
-            avatar: 'D',
-            price: 149
+            vehicleType: 'Train'
+            
         }
     ]
     return (
@@ -64,7 +57,7 @@ const Home = () => {
             <div style={style}>
             
             {
-                vehicles.map(vehicle => <Vehicle key={vehicle.bedType} vehicle={vehicle}></Vehicle>)
+                vehicles.map(vehicle => <Vehicle key={vehicle.vehicleType} vehicle={vehicle}></Vehicle>)
             }
         </div>
         </div>

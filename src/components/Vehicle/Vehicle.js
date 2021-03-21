@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Vehicle({ vehicle }) {
   const classes = useStyles();
   const history = useHistory()
-  const handleBook = (bedType) => {
-    history.push(`/book/${bedType}`);
+  const handleBook = (vehicleType) => {
+    history.push(`/book/${vehicleType}`);
   }
 
   const figureStyle = {
@@ -48,7 +48,7 @@ export default function Vehicle({ vehicle }) {
     // <Card className={classes.img} style={{ height: '200px', padding: '10px' }}>
     //   <Grid row lg-4 sm-1>
     //     <CardMedia
-    //       onClick={() => handleBook(room.bedType)}
+    //       onClick={() => handleBook(room.vehicleType)}
     //       className={classes.media}
     //       image={room.imgUrl}
     //       title={room.title}
@@ -60,7 +60,7 @@ export default function Vehicle({ vehicle }) {
         <Card style={{margin: '10px', padding:'3px', border:'1px solid black'}}>
 
           <Card.Img variant="top" src={room.imgUrl}
-            onClick={() => handleBook(room.bedType)}
+            onClick={() => handleBook(room.vehicleType)}
             style={{ height: '10rem', width:'15rem', backgroundColor:'wheat', cursor:'pointer'  }}
           />
 
@@ -69,7 +69,7 @@ export default function Vehicle({ vehicle }) {
 
       {/* <Col xs={6} md={4} sm={12}>
         <Image src={room.imgUrl} rounded fluid 
-        onClick={() => handleBook(room.bedType)}
+        onClick={() => handleBook(room.vehicleType)}
         />
       </Col> */}
 
@@ -80,7 +80,7 @@ export default function Vehicle({ vehicle }) {
           height={180}
           alt="171x180"
           src={vehicle.imgUrl}
-          onClick={() => handleBook(vehicle.bedType)}
+          onClick={() => handleBook(vehicle.vehicleType)}
           style={{cursor:'pointer'}}
         />
         

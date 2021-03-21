@@ -11,19 +11,25 @@ import "react-datepicker/dist/react-datepicker.css";
 import './Book.css';
 import { Col, Row, Card, ListGroup, Figure } from 'react-bootstrap';
 import Fairs from '../Fairs/Fairs';
-
+import { CgArrowLongRightC } from 'react-icons/cg';
 
 const Book = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const { bedType } = useParams();
-    const imageType = bedType === "Single" ? singleImage : bedType === "Double" ? doubleImage :
-        bedType === "Family" ? familyImage : trainImage;
+    const { vehicleType } = useParams();
+    
+    const imageType = vehicleType === "Single" ? singleImage : vehicleType === "Double" ? doubleImage :
+        vehicleType === "Family" ? familyImage : trainImage;
 
+    const [journeyFrom, setJourneyFrom] = useState();
+    const [destination, setDestination] = useState();
     const { register, handleSubmit, watch, errors } = useForm();
     const [searchState, setSearchState] = useState('false');
     const onSubmit = data => {
         // alert(JSON.stringify(data));
-        console.log(data)
+        setJourneyFrom(data.starting);
+        setDestination(data.destination);
+
+        console.log(journeyFrom, destination)
         setSearchState(!searchState);
     };
     const tickets = [1, 2, 3];
@@ -57,13 +63,24 @@ const Book = () => {
 
                 <Col style={{ display: !searchState ? 'block' : 'none' }} >
 
-                    <Card style={{ width: '18rem', height:'auto' }} className="booking-form">
+                    <Card style={{ width: '18rem', height: 'auto' }} className="booking-form">
+                        <ListGroup variant="flush" >
 
+                            <ListGroup.Item className="from-to">
+                                <Row style={{ width: 'auto', height: '8rem' }}>
+                                    <Figure style={{ padding: '2rem', backgroundColor: 'whitesmoke', borderRadius: '10px' }}>
+                                        <h5>{journeyFrom} <CgArrowLongRightC/> {destination}</h5>
+                                    </Figure>
+                                </Row>
+
+                            </ListGroup.Item>
+                        </ListGroup>
                         {
 
-                            tickets.map(ticket => 
+                            tickets.map(ticket =>
                                 <div>
-                                    <Fairs imageType={imageType}></Fairs>
+
+                                    <Fairs imageType={imageType} ></Fairs>
                                 </div>
                             )
                         }

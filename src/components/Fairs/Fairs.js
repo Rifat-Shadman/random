@@ -6,14 +6,12 @@ import doubleImage from '../../images/Double.png';
 import familyImage from '../../images/Family.png';
 import trainImage from '../../images/Train.png';
 import personIcon from '../../images/icons/person.png';
-import Vehicle from '../Vehicle/Vehicle';
+
 const Fairs = (props) => {
     // console.log(props);
-    const { bedType } = useParams();
-    const { title } = Vehicle;
-    console.log(bedType);
-    const imageType = bedType === "Single" ? singleImage : bedType === "Double" ? doubleImage :
-        bedType === "Family" ? familyImage : trainImage;
+    const { vehicleType } = useParams();
+    const imageType = vehicleType === "Single" ? singleImage : vehicleType === "Double" ? doubleImage :
+        vehicleType === "Family" ? familyImage : trainImage;
     return (
 
         <ListGroup variant="flush" >

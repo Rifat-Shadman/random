@@ -26,7 +26,7 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRoute path="/book/:bedType">
+            <PrivateRoute path="/book/:vehicleType">
               <Book />
             </PrivateRoute>
             <Route exact path="/">
