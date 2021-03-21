@@ -1,0 +1,17 @@
+.leaflet-container{
+    margin:  3vh 8vw;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 10px;
+  }
+
+.booking-form{
+    margin-top: 2em;
+    margin-left: 5em;
+    padding: 3px;
+    width: 50vw;
+    height: 80vh;
+    width: 80%;
+    border: 1px dashed slategrey ;
+    border-radius: 10px;
+}
